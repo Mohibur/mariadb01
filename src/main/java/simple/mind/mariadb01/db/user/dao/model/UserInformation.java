@@ -7,18 +7,21 @@ import javax.persistence.Id;
 import org.hibernate.annotations.Subselect;
 import org.springframework.data.annotation.Immutable;
 
+import lombok.Data;
+
 @Entity
 @Immutable
 @Subselect("SELECT b.id, a.name, a.email, a.age, b.address FROM users a JOIN user_address b ON (a.id = b.user_id)")
+@Data
 public class UserInformation {
 	@Id
-	public Integer id;
+	private Integer id;
 	@Column
-	public String name;
+	private String name;
 	@Column
-	public String email;
+	private String email;
 	@Column
-	public Integer age;
+	private Integer age;
 	@Column
-	public String address;
+	private String address;
 }
